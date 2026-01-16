@@ -1,16 +1,27 @@
-## Hi there 👋
+# Hi, I’m Sumed
 
-<!--
-**Sumed-Sreedhar/Sumed-Sreedhar** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Instrumentation Engineering student focused on **embedded systems**.
 
-Here are some ideas to get you started:
+I’m currently building STM32-based projects to strengthen fundamentals in:
+- Embedded C
+- GPIO, EXTI, and timer interrupts
+- Polling vs event-driven design
+- State-based system architecture
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+My work emphasizes **hardware-validated designs**, clean interrupt handling, and understanding how embedded systems behave under real constraints.
+
+## Projects
+- **GPIO-Driven Status Controller**  
+  Foundational project exploring GPIO, polling, debouncing, and interrupts.
+
+- **Event-Driven LED Controller**  
+  Event-driven design using EXTI for input and timers for output control, with strict separation between state and action.
+
+More projects will be added as I continue building.
+
+## Tools & Platforms
+- STM32 (STM32F446RE)
+- Embedded C
+- STM32 HAL
+- Linux
+- Git & GitHub
