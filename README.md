@@ -5,19 +5,27 @@ Instrumentation Engineering student focused on **embedded systems**.
 I’m currently building STM32-based projects to strengthen fundamentals in:
 - Embedded C
 - GPIO, EXTI, and timer interrupts
-- Polling vs event-driven design
-- State-based system architecture
+- Polling vs interrupt-driven design
+- State-based and event-driven system architecture
 
 My work emphasizes **hardware-validated designs**, clean interrupt handling, and understanding how embedded systems behave under real constraints.
 
-## Projects
-- **GPIO-Driven Status Controller**  
-  Foundational project exploring GPIO, polling, debouncing, and interrupts.
+---
 
-- **Event-Driven LED Controller**  
-  Event-driven design using EXTI for input and timers for output control, with strict separation between state and action.
+## Projects
+
+### GPIO-Driven Status Controller
+Foundational project exploring GPIO configuration, polling vs interrupts, software debouncing, and interrupt flow to understand basic input/output handling on STM32.
+
+### Event-Driven LED Controller
+Event-driven design using EXTI for input handling and timer interrupts for output control, demonstrating clear separation between event detection and time-based execution.
+
+### Interrupt-Driven LED Pattern Controller
+STM32-based interrupt-driven LED pattern controller using EXTI for mode transitions and TIM interrupts for deterministic, non-blocking pattern execution. Implements hierarchical state behavior, counter-based timing logic, and strict peripheral ownership to ensure predictable firmware behavior.
 
 More projects will be added as I continue building.
+
+---
 
 ## Tools & Platforms
 - STM32 (STM32F446RE)
