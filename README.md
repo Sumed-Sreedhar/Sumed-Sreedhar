@@ -23,6 +23,9 @@ Event-driven design using EXTI for input handling and timer interrupts for outpu
 ### Interrupt-Driven LED Pattern Controller
 STM32-based interrupt-driven LED pattern controller using EXTI for mode transitions and TIM interrupts for deterministic, non-blocking pattern execution. Implements hierarchical state behavior, counter-based timing logic, and strict peripheral ownership to ensure predictable firmware behavior.
 
+### Mode Timeout Controller
+Interrupt- and timer-driven controller demonstrating **time-based state decay**. Modes automatically expire after a fixed duration without further user input, combining event-driven transitions (EXTI) with time-driven enforcement (TIM) to manage state lifetime deterministically.
+
 More projects will be added as I continue building.
 
 ---
