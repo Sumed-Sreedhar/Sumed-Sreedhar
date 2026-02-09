@@ -5,8 +5,9 @@ Instrumentation Engineering student focused on **embedded systems**.
 I’m currently building STM32-based projects to strengthen fundamentals in:
 - Embedded C
 - GPIO, EXTI, and timer interrupts
+- UART communication and serial interfaces
 - Polling vs interrupt-driven design
-- State-based and event-driven system architecture
+- State-based, event-driven, and time-driven system architecture
 
 My work emphasizes **hardware-validated designs**, clean interrupt handling, and understanding how embedded systems behave under real constraints.
 
@@ -25,6 +26,9 @@ STM32-based interrupt-driven LED pattern controller using EXTI for mode transiti
 
 ### Mode Timeout Controller
 Interrupt- and timer-driven controller demonstrating **time-based state decay**. Modes automatically expire after a fixed duration without further user input, combining event-driven transitions (EXTI) with time-driven enforcement (TIM) to manage state lifetime deterministically.
+
+### Interrupt-Driven UART Command Line Interface
+UART-based command line interface built on STM32 using interrupt-driven RX, line buffering, and command parsing. Demonstrates safe ISR–main loop separation, message framing, and deterministic command dispatch, serving as a foundation for future DMA-based and bare-metal UART work.
 
 More projects will be added as I continue building.
 
