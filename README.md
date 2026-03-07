@@ -5,54 +5,98 @@ Instrumentation Engineering student focused on **embedded systems and firmware a
 I build STM32-based projects to develop strong fundamentals in:
 
 - Embedded C
-- GPIO, EXTI, and timer interrupts
-- Hardware PWM (duty-cycle control)
-- UART communication and interrupt-driven serial interfaces
-- Matrix keypad scanning
-- Fault handling and safety state design
-- Polling vs interrupt-driven systems
-- State-based, event-driven, and time-driven architectures
+- Interrupt-driven firmware design
+- Deterministic timing and hardware-triggered systems
+- Peripheral integration (GPIO, timers, ADC, DMA, UART)
+- State-machine based firmware architecture
+- Real-time embedded data pipelines
 
-My work emphasizes **hardware-validated designs**, strict ISR responsibility boundaries, deterministic timing, and clean separation between event detection, time management, and hardware control.
+My work emphasizes **hardware-validated systems, deterministic behavior, strict ISR responsibility boundaries, and clean separation between event detection, time management, and hardware control.**
 
 ---
 
-## Projects
+# Key Projects
 
-### GPIO-Driven Status Controller  
-Foundational project exploring GPIO configuration, polling vs interrupts, software debouncing, and interrupt flow to understand basic input/output handling on STM32.
+### Deterministic Data Acquisition Engine
+A hardware-driven real-time data acquisition pipeline using **timer-triggered ADC sampling and DMA circular buffering**.
 
-### Event-Driven LED Controller  
-Event-driven design using EXTI for input handling and timer interrupts for output control, demonstrating separation between event detection and time-based execution.
+Key concepts demonstrated:
+- Timer-triggered deterministic sampling
+- ADC conversion timing analysis
+- Peripheral-to-memory DMA transfers
+- Circular buffer streaming architecture
+- Half-transfer / full-transfer interrupt processing
+- Real-time throughput and processing window analysis
 
-### Interrupt-Driven LED Pattern Controller  
-Hierarchical state-machine implementation using EXTI for mode transitions and TIM interrupts for deterministic, non-blocking pattern execution. Introduces structured state layering and counter-based timing logic.
+Architecture:
 
-### Mode Timeout Controller  
-Interrupt- and timer-driven controller demonstrating **time-based state decay**. Modes automatically expire after fixed durations, combining event-driven transitions with timer-enforced state lifetime management.
+```
+Timer → ADC → DMA → Circular Buffer → CPU Processing
+```
 
-### Interrupt-Driven UART Command Line Interface  
-UART-based CLI using interrupt-driven RX, line buffering, echo handling, backspace support, and command parsing. Demonstrates ISR-to-main-loop handoff, message framing, and safe command dispatch architecture.
+This design mirrors acquisition pipelines used in **sensor systems, signal monitoring, and embedded instrumentation**.
 
-### Multi-Mode PWM LED Control System  
-Integrated firmware system combining:
-- Hardware PWM (TIM3)
-- Timer-based system tick (TIM2)
-- EXTI-based mode control and fault handling
-- 4x3 matrix keypad scanning
+---
+
+### Multi-Mode PWM LED Control System
+
+Integrated multi-peripheral firmware system implementing:
+
+- Hardware PWM brightness control (TIM3)
+- Timer-driven system tick scheduler (TIM2)
+- EXTI-based mode switching and fault detection
 - UART CLI brightness control
+- 4×3 matrix keypad input
 - Auto-ramp brightness algorithm
-- Hierarchical state machine with fault override layer
+- Hierarchical state machine with fault override
 
-Demonstrates multi-peripheral coordination, deterministic timing, non-blocking control logic, and structured state transitions in a hardware-validated environment.
-
-More projects will be added as I continue building.
+Demonstrates **coordinated peripheral control, deterministic timing, and structured firmware architecture**.
 
 ---
 
-## Tools & Platforms
-- STM32 (STM32F446RE)
-- Embedded C
-- STM32 HAL
-- Linux
-- Git & GitHub
+### Interrupt-Driven UART Command Line Interface
+
+UART command interface built using **interrupt-driven RX and buffered command parsing**.
+
+Key concepts demonstrated:
+
+- Interrupt-driven serial reception
+- Line buffering and message framing
+- Echo and backspace handling
+- ISR-to-main-loop data handoff
+- Deterministic command processing
+
+This project establishes a reusable foundation for **embedded system configuration interfaces and debugging tools**.
+
+---
+
+### Interrupt-Driven LED Pattern Controller
+
+Firmware system implementing **hierarchical state-machine control** using:
+
+- EXTI interrupts for event-driven mode transitions
+- Timer interrupts for deterministic pattern timing
+- Counter-based non-blocking timing logic
+
+Demonstrates how embedded firmware can implement **predictable multi-mode behavior without blocking delays**.
+
+---
+
+### Event-Driven LED Controller
+
+Early event-driven firmware project demonstrating separation between:
+
+- **event detection (EXTI)**
+- **time-based execution (timer interrupts)**
+
+This project established the architectural foundation for later **state-machine-based firmware designs**.
+
+---
+
+# Tools & Platforms
+
+- **STM32 (STM32F446RE)**
+- **Embedded C**
+- **STM32 HAL**
+- **Linux**
+- **Git & GitHub**
