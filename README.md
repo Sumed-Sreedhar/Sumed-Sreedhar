@@ -1,23 +1,47 @@
 # Hi, I’m Sumed
 
-Instrumentation Engineering student focused on **embedded systems and firmware architecture**.
+Electronincs & Instrumentation Engineering student focused on **embedded systems and firmware architecture**.
 
 I build STM32-based systems to develop strong fundamentals in:
 
 - Embedded C
 - Interrupt-driven firmware design
 - Deterministic timing and hardware-triggered systems
-- Peripheral integration (GPIO, timers, ADC, DMA, UART, PWM)
+- Peripheral integration (GPIO, timers, ADC, DMA, UART, I2C, PWM)
+- Sensor interfacing and embedded communication protocols
 - State-machine-based firmware architecture
 - Real-time embedded data pipelines
 
-My work emphasizes **hardware-validated systems, deterministic behavior, strict ISR responsibility boundaries, and clean separation between event detection, time management, and hardware control.**
+My work emphasizes **hardware-validated systems, deterministic behavior, strict ISR responsibility boundaries, and clean separation between event detection, time management, data flow, and hardware control.**
 
 ---
 
 # Key Projects
 
+### BME280 I2C Environmental Monitoring System
+
+Complete sensor-integrated embedded system using the **BME280 over I2C** with timer-driven sampling and interrupt-based UART reporting.
+
+**Key concepts demonstrated:**
+- I2C bus bring-up and debugging
+- Register-based sensor configuration
+- Datasheet-driven firmware development
+- Calibration coefficient loading
+- Raw ADC data reconstruction
+- Compensation algorithms for temperature, pressure, and humidity
+- Timer-scheduled sampling
+- Non-blocking UART transmission
+- Modular driver architecture
+
+**Architecture:**  
+TIM2 → Sample Flag → I2C Sensor Read → Compensation Math → UART Output
+
+Demonstrates real-world **sensor interfacing, protocol reasoning, and end-to-end embedded system integration**.
+
+---
+
 ### Deterministic Data Acquisition Engine
+
 A hardware-driven real-time data acquisition pipeline using **timer-triggered ADC sampling and DMA circular buffering**.
 
 **Key concepts demonstrated:**
@@ -75,17 +99,6 @@ Firmware system implementing **hierarchical state-machine control** using:
 - Counter-based non-blocking execution
 
 Demonstrates **predictable multi-mode behavior without blocking delays**.
-
----
-
-### Event-Driven LED Controller
-
-Early-stage firmware project demonstrating separation of concerns between:
-
-- **Event detection (EXTI)**
-- **Time-based execution (timer interrupts)**
-
-Established the architectural foundation for later **state-machine-driven systems**.
 
 ---
 
