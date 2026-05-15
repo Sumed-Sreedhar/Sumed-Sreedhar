@@ -1,6 +1,6 @@
 # Hi, I’m Sumed
 
-Electronincs & Instrumentation Engineering student focused on **embedded systems and firmware architecture**.
+Electronics & Instrumentation Engineering student focused on **embedded systems and firmware architecture**.
 
 I build STM32-based systems to develop strong fundamentals in:
 
@@ -11,12 +11,34 @@ I build STM32-based systems to develop strong fundamentals in:
 - Sensor interfacing and embedded communication protocols
 - State-machine-based firmware architecture
 - Real-time embedded data pipelines
+- Streaming telemetry and acquisition systems
 
-My work emphasizes **hardware-validated systems, deterministic behavior, strict ISR responsibility boundaries, and clean separation between event detection, time management, data flow, and hardware control.**
+My work emphasizes **hardware-validated systems, deterministic behavior, strict ISR responsibility boundaries, and clean separation between event detection, timing logic, data flow, and hardware control.**
 
 ---
 
 # Key Projects
+
+### STM32 Deterministic GPS Telemetry Node
+
+Real-time GPS telemetry system using the **NEO-6M GPS module** with interrupt-driven UART reception, ring buffer streaming, and structured NMEA parsing.
+
+**Key concepts demonstrated:**
+- Interrupt-driven UART reception
+- Ring buffer architecture
+- Producer-consumer data flow
+- NMEA sentence reconstruction and parsing
+- Multi-UART firmware design
+- Real-time telemetry pipelines
+- Coordinate extraction and formatting
+- Non-blocking serial communication
+
+**Architecture:**  
+GPS Module → UART RX Interrupt → Ring Buffer → NMEA Parser → Structured Telemetry Output
+
+Demonstrates real-world **stream-oriented communication handling and telemetry system design**.
+
+---
 
 ### BME280 I2C Environmental Monitoring System
 
@@ -87,18 +109,6 @@ UART command interface built using **interrupt-driven reception and buffered com
 - Deterministic command execution
 
 Forms a reusable foundation for **embedded configuration interfaces and debugging tools**.
-
----
-
-### Interrupt-Driven LED Pattern Controller
-
-Firmware system implementing **hierarchical state-machine control** using:
-
-- EXTI interrupts for event-driven transitions
-- Timer interrupts for deterministic timing
-- Counter-based non-blocking execution
-
-Demonstrates **predictable multi-mode behavior without blocking delays**.
 
 ---
 
