@@ -48,7 +48,7 @@ A bootloader that stays resident in flash and launches a separately linked appli
 ## Skills
 
 **Languages:** C
-**Platforms:** STM32F4 (HAL, CubeMX, CubeIDE), ESP32-S3 (PlatformIO)
+**Platforms:** STM32F4 (Cube Programmer, HAL, CubeMX, CubeIDE), ESP32-S3 (PlatformIO)
 **Interfaces:** UART, SPI, I2C, ADC, DMA, timers/PWM, EXTI
 **Focus:** interrupt-driven design, state machines, streaming data, sensor drivers, memory layout and boot flow
 **Tools:** Git, ST-LINK, Linux
