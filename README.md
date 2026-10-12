@@ -1,15 +1,28 @@
-# Hi, I'm Sumed
+<h1 align="center">Hi, I'm Sumed 👋</h1>
 
-Embedded firmware developer working with STM32 microcontrollers. I like the layer where software meets hardware: interrupts, DMA, communication protocols, and firmware that stays predictable when something goes wrong.
+<p align="center">
+  Embedded firmware developer working with STM32 microcontrollers.<br/>
+  I like the layer where software meets hardware: interrupts, DMA, communication protocols,<br/>
+  and firmware that stays <b>predictable when something goes wrong</b>.
+</p>
 
-Right now I'm building a **flight computer** and a **custom bootloader**.
+<p align="center">
+  <img src="https://img.shields.io/badge/MCU-STM32F446RE-03234B?logo=stmicroelectronics&logoColor=white" />
+  <img src="https://img.shields.io/badge/Core-Cortex--M4-0091BD" />
+  <img src="https://img.shields.io/badge/Language-C-A8B9CC?logo=c&logoColor=black" />
+  <img src="https://img.shields.io/badge/Python-tooling-3776AB?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Focus-Boot%20%26%20Reliability-orange" />
+</p>
+
+> 🎓 3rd-year Electronics & Instrumentation Engineering student, Bengaluru
+> 🎯 Targeting embedded firmware roles in automotive and mobility
 
 ---
 
-## In Progress
+## 🚧 In Progress
 
-### STM32 Flight Computer
-*Under active development*
+### 🛰️ STM32 Flight Computer
+*Under active development* · [**View repository →**](https://github.com/Sumed-Sreedhar/STM32-Embedded-Flight-Computer)
 
 A flight computer on the STM32F446RE that reads an IMU, magnetometer, barometer and GPS, estimates orientation and altitude, and logs flight data to an SD card. The goal is one coherent firmware architecture, not a pile of separate sensor demos.
 
@@ -22,18 +35,33 @@ BOOT → SELF_TEST → INIT → READY → ARMED → FLIGHT → LANDING → SHUTD
                   any fault (GPS, IMU, SD, UART) → FAULT
 ```
 
-### Custom Bootloader (STM32F446RE)
-*Under active development*
+### 🔐 Custom Bootloader (STM32F446RE)
+*Under active development* · [**View repository →**](https://github.com/Sumed-Sreedhar/STM32F446-Custom-Bootloader)
 
-A bootloader that stays resident in flash and launches a separately linked application. It covers the parts of startup that normally stay hidden: flash partitioning, linker layout, vector table relocation, and the handoff into the application's reset handler.
+A bootloader that stays resident in flash, **validates** a separately linked application, and only then hands over control. It covers the parts of startup that normally stay hidden: flash partitioning, linker layout, image integrity, and the handoff into the application's reset handler.
 
-- **Building:** separate bootloader and application images, an application header region, and a controlled jump into the app
-- **Next:** image validation, a firmware update path, version metadata, and fault-aware boot
-- **Goal:** host the flight computer firmware so it can be updated and recovered without a debugger
+```text
+0x08000000  Bootloader          32 KB
+0x08008000  Application Header  16 KB   magic · size · CRC-32
+0x0800C000  Application Image  464 KB   vector table starts here
+```
+
+**Working today**
+- Separate bootloader and application projects with custom flash partitioning and a dedicated `.header` linker section
+- Application linked at a non-default address, with vector table relocation by the application
+- Image validation before every boot: **magic number → reset handler → size → hardware CRC-32**, each failure reported with its own code over UART
+- Header-free binary generation (`objcopy --remove-section=.header`) and a Python utility that reproduces the STM32 hardware CRC convention for size and checksum metadata
+- Controlled handoff: interrupts disabled, SysTick stopped, MSP loaded, jump to the application's reset handler
+- Verified on hardware: valid image boots, corrupted CRC is rejected, bad magic number is rejected
+
+**Next**
+- Stricter vector-table checks, automated header generation, and full negative-test coverage
+- A firmware update path, version metadata, and dual-image fallback
+- Fault-aware boot, with the goal of hosting the flight computer firmware so it can be updated and recovered without a debugger
 
 ---
 
-## Previous Work
+## 📦 Previous Work
 
 | Project | What it does |
 |---|---|
@@ -45,15 +73,20 @@ A bootloader that stays resident in flash and launches a separately linked appli
 
 ---
 
-## Skills
+## 🛠️ Skills
 
-**Languages:** C
-**Platforms:** STM32F4 (Cube Programmer, HAL, CubeMX, CubeIDE), ESP32-S3 (PlatformIO)
-**Interfaces:** UART, SPI, I2C, ADC, DMA, timers/PWM, EXTI
-**Focus:** interrupt-driven design, state machines, streaming data, sensor drivers, memory layout and boot flow
-**Tools:** Git, ST-LINK, Linux
-**Learning:** FreeRTOS, sensor fusion, linker scripts
+| | |
+|---|---|
+| **Languages** | C, Python (build and host-side tooling) |
+| **Platforms** | STM32F4 (CubeProgrammer, HAL, CubeMX, CubeIDE), ESP32-S3 (PlatformIO) |
+| **Interfaces** | UART, SPI, I2C, ADC, DMA, timers/PWM, EXTI, hardware CRC |
+| **Focus** | Interrupt-driven design, state machines, streaming data, sensor drivers, memory layout, linker scripts, boot flow and image validation |
+| **Tools** | Git, ST-LINK, GNU Arm toolchain (`objcopy`, `objdump`), logic analyzer, Linux |
+| **Learning** | FreeRTOS, sensor fusion, fault-tolerant boot and recovery |
 
 ---
 
-Interested in embedded firmware, real-time systems, and low-level software.
+<p align="center">
+  Interested in embedded firmware, real-time systems, and low-level software.<br/>
+  <a href="https://github.com/Sumed-Sreedhar?tab=repositories">Browse my repositories</a>
+</p>
